@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <date-format>MM/dd/yyyy HH:mm</date-format>
+        <wildcard>true</wildcard>
+    </configuration>
+
+    <mapping>
+        <class-a>org.flowable.engine.impl.persistence.entity.DeploymentEntity</class-a>
+        <class-b>org.flowable.amazonaws.persistence.dao.model.Deployment</class-b>
+        <field>
+            <a>resources</a>
+            <b>resources</b>
+            <a-hint>org.flowable.engine.impl.persistence.entity.ResourceEntityImpl</a-hint>
+            <b-hint>org.flowable.amazonaws.persistence.dao.model.Resource</b-hint>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>org.flowable.variable.service.impl.persistence.entity.VariableInstanceEntity</class-a>
+        <class-b>org.flowable.amazonaws.persistence.dao.model.Variable</class-b>
+        <field custom-converter="org.flowable.amazonaws.persistence.mapper.VariableTypeConverter">
+            <a>type</a>
+            <b>type</b>
+        </field>
+    </mapping>
+
+</mappings>
